@@ -29,7 +29,7 @@ public class GameBoardView extends JPanel{
         
         // Draw the map
         g.setColor(Color.GREEN);
-        g.fillRect(0, 400, getWidth(), getHeight() - 400);
+        g.fillRect(0, 500, getWidth(), getHeight() - 500);
         
         // Draw the dino
         dino.draw(g);

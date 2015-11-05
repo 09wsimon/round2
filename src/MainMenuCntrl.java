@@ -7,24 +7,26 @@ import java.awt.event.ActionListener;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author brianwest
  */
-public class MainMenuCntrl implements ActionListener{
+public class MainMenuCntrl implements ActionListener {
 
     MainMenuView mainView;
-    
+
     public MainMenuCntrl(MainMenuView mainView) {
         this.mainView = mainView;
         
-       mainView.b4.addActionListener(this);
+        mainView.b4.addActionListener(this);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-     mainView.b4.setText("World");
+        Object o = e.getSource();
+        
+        if (o == mainView.b4) {
+        }
     }
-    
+
 }

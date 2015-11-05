@@ -27,7 +27,7 @@ public class Dino extends Rectangle {
 
         isJumping = false;
         dirUp = false;
-        speed = 7;
+        speed = 10;
         
         dinoImage = new ImageIcon("src/images/dino_sm.png");
     }
@@ -50,7 +50,7 @@ public class Dino extends Rectangle {
                 }
             }else{
                 y += speed;
-                if (y > 400) {
+                if (y >= 400) {
                     isJumping = false;
                 }
             }

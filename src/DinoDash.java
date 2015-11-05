@@ -1,4 +1,6 @@
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 /*
@@ -15,6 +17,8 @@ public class DinoDash extends JFrame{
 
     MainMenuView mainView;
     MainMenuCntrl mainCtrl;
+    GameBoardView gameView;
+    GameBoardCntrl gameCtrl;
     
     public DinoDash() {
         super("Dino Dash!");
@@ -26,6 +30,15 @@ public class DinoDash extends JFrame{
         
         mainView = new MainMenuView();
         mainCtrl = new MainMenuCntrl(mainView);
+        gameView = new GameBoardView();
+        gameCtrl = new GameBoardCntrl(gameView);
+        
+        mainView.b4.addActionListener((ActionEvent e) -> {
+            remove(mainView);
+            add(gameView);
+            revalidate();
+            repaint();
+        });
         
         add(mainView);
     }

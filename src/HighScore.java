@@ -11,6 +11,8 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 
 public class HighScore extends JPanel implements ActionListener{
@@ -21,6 +23,10 @@ public class HighScore extends JPanel implements ActionListener{
     
     highScore = new JLabel("high score");
     highScore.setBounds(475, 300, 100,50);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
     }
 }
     
