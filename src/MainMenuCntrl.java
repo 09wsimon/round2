@@ -19,12 +19,12 @@ public class MainMenuCntrl implements ActionListener{
     public MainMenuCntrl(MainMenuView mainView) {
         this.mainView = mainView;
         
-        mainView.button.addActionListener(this);
+       mainView.b4.addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        mainView.button.setText("World");
+     mainView.b4.setText("World");
     }
     
 }
