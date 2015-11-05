@@ -1,10 +1,14 @@
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Label;
 import java.awt.TextField;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -31,6 +35,12 @@ public class MainMenuView extends JPanel {
     JTextArea textArea;
    
     private JTextField nameEnter = new JTextField("Enter name here");
+     public void paintComponent(Graphics g)
+         {
+             super.paintComponent(g);
+             Image myImage = Toolkit.getDefaultToolkit().getImage("images/BG.jpg");
+             g.drawImage(myImage, 0, 0, this);
+         }
     
     public MainMenuView() {
         setBackground(Color.WHITE);
@@ -50,6 +60,8 @@ public class MainMenuView extends JPanel {
         //textArea = new JTextArea(5, 20);
         
         setLayout(null);
+  
+    
     
         add(b1);
         add(b2);
@@ -70,5 +82,9 @@ public class MainMenuView extends JPanel {
         //textArea.setBounds(600,140,900,220);
         
       
+    }
+
+    private JLabel newJLabel(String imagesbgjpg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
