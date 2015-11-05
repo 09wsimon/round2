@@ -15,6 +15,8 @@ public class Main extends JFrame{
 
     MainMenuView mainView;
     MainMenuCntrl mainCtrl;
+    GameBoardView gameView;
+    GameBoardCntrl gameCtrl;
     
     public Main() {
         super("Dino Dash!");
@@ -26,8 +28,10 @@ public class Main extends JFrame{
         
         mainView = new MainMenuView();
         mainCtrl = new MainMenuCntrl(mainView);
+        gameView = new GameBoardView();
+        gameCtrl = new GameBoardCntrl(gameView);
         
-        add(mainView);
+        add(gameView);
     }
     
     public static void main(String[] args) {
