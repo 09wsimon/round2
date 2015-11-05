@@ -38,7 +38,7 @@ public class MainMenuView extends JPanel {
      public void paintComponent(Graphics g)
          {
              super.paintComponent(g);
-             Image myImage = Toolkit.getDefaultToolkit().getImage("images/BG.jpg");
+             Image myImage = Toolkit.getDefaultToolkit().getImage("src/images/BG.jpg");
              g.drawImage(myImage, 0, 0, this);
          }
     
