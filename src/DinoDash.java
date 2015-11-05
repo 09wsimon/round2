@@ -11,14 +11,12 @@ import javax.swing.JFrame;
  *
  * @author brianwest
  */
-public class Main extends JFrame{
+public class DinoDash extends JFrame{
 
     MainMenuView mainView;
     MainMenuCntrl mainCtrl;
-    GameBoardView gameView;
-    GameBoardCntrl gameCtrl;
     
-    public Main() {
+    public DinoDash() {
         super("Dino Dash!");
         
         setSize(800, 600);
@@ -28,14 +26,12 @@ public class Main extends JFrame{
         
         mainView = new MainMenuView();
         mainCtrl = new MainMenuCntrl(mainView);
-        gameView = new GameBoardView();
-        gameCtrl = new GameBoardCntrl(gameView);
         
-        add(gameView);
+        add(mainView);
     }
     
     public static void main(String[] args) {
-        Main frame = new Main();
+        DinoDash frame = new DinoDash();
         frame.setVisible(true);
     }
     
