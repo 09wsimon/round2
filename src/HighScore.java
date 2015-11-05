@@ -8,6 +8,19 @@
  *
  * @author brianwest
  */
-public class HighScore {
-    int a;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+
+public class HighScore extends JPanel implements ActionListener{
+    private JLabel highScore;
+    
+    public HighScore(){
+        
+    
+    highScore = new JLabel("high score");
+    highScore.setBounds(475, 300, 100,50);
+    }
 }
+    
