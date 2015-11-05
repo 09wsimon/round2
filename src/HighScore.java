@@ -6,7 +6,7 @@
 
 /**
  *
- * @author brianwest
+ * @author natasha
  */
 
 import javax.swing.*;
