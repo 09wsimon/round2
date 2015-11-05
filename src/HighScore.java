@@ -9,5 +9,5 @@
  * @author brianwest
  */
 public class HighScore {
-    
+    int a;
 }
