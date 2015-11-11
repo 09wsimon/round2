@@ -31,6 +31,11 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
         gameView.requestFocus();
     }
 
+    public int generateRandom() {
+        double rn = Math.random();
+        return (int)(rn * 50);
+    }
+    
     @Override
     public void keyTyped(KeyEvent e) {
     }
@@ -52,6 +57,10 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (generateRandom() == 0) {
+            gameView.getObstacles().add(new Obstacle());
+        }
+        
         gameView.repaint();
     }
 }

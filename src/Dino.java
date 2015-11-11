@@ -16,6 +16,8 @@ import javax.swing.ImageIcon;
 public class Dino extends Rectangle {
 
     private final int GRAVITY = 10;
+    private final int dinoWidth = 75;
+    private final int dinoHeight = 80;
     
     private boolean isJumping;
     private boolean dirUp;
@@ -23,7 +25,7 @@ public class Dino extends Rectangle {
     private ImageIcon dinoImage;
 
     public Dino() {
-        setBounds(10, 400, 50, 100);
+        setBounds(10, 400, dinoWidth, dinoHeight);
 
         isJumping = false;
         dirUp = false;
@@ -45,7 +47,7 @@ public class Dino extends Rectangle {
         if (isJumping) {
             if (dirUp) {
                 y -= speed;
-                if (y < 350) {
+                if (y < 300) {
                     dirUp = false;
                 }
             }else{
@@ -64,5 +66,12 @@ public class Dino extends Rectangle {
 
     public boolean isJumping() {
         return isJumping;
+    }
+    
+    public boolean checkHit(Rectangle r) {
+        if(intersects(r)) {
+            return true;
+        }
+        return false;
     }
 }
