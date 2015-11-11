@@ -46,7 +46,7 @@ public class MainMenuView extends JPanel {
         setBackground(Color.WHITE);
         
         /*
-        Adding the buttons Easy , Medium , Hard, Start
+        Adding the buttons Easy , Medium , Hard, Start, Enter Name and High Scores
         */
        
         

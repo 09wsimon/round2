@@ -8,7 +8,9 @@
  *
  * @author natasha
  */
+package highscores;
 
+import java.io.Serializable;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
