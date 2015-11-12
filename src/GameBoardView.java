@@ -45,6 +45,9 @@ public class GameBoardView extends JPanel {
 
         // Draw the map
         Image myImage = Toolkit.getDefaultToolkit().getImage("src/images/Scrollback.png");
+        Image myImage1 = Toolkit.getDefaultToolkit().getImage("src/images/topband.png");
+        g.drawImage(myImage1, 0, 0, this);
+        
 
         for (int i = 0; i < 10; i++) {
             g.drawImage(myImage, x + (i * 100), y, null);
