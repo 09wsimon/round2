@@ -25,7 +25,7 @@ public class DinoDash extends JFrame{
     public DinoDash() {
         super("Dino Dash!");
         
-        showBounds = true;
+        showBounds = false;
         
         setSize(800, 600);
         setResizable(false);

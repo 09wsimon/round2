@@ -67,23 +67,23 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
         }
 
         if (o == gameView.showBoundsButton) {
-            if(DinoDash.showBounds) {
+            if (DinoDash.showBounds) {
                 DinoDash.showBounds = false;
             } else {
                 DinoDash.showBounds = true;
             }
         }
 
-        
         if (o == timer) {
             gameView.distance += 1;
+            
+            gameView.x = gameView.x - 5;
+
+            if (gameView.x <= -100) {
+                gameView.x = 0;
+            }
+            
             gameView.repaint();
-             gameView.x = gameView.x - 5;
-        
-        if (gameView.x<0)
-                {
-                    gameView.x=100;
-                }
         }
     }
 }
