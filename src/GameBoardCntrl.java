@@ -18,6 +18,7 @@ import javax.swing.Timer;
 public class GameBoardCntrl implements ActionListener, KeyListener {
 
     private final int SPACE = 32;
+    private final int UP = 38;
 
     private GameBoardView gameView;
     private Timer timer;
@@ -26,6 +27,8 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
         this.gameView = gameView;
         timer = new Timer(50, this);
 
+        gameView.showBoundsButton.addActionListener(this);
+
         timer.start();
         gameView.addKeyListener(this);
         gameView.requestFocus();
@@ -33,9 +36,9 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
 
     public int generateRandom() {
         double rn = Math.random();
-        return (int)(rn * 50);
+        return (int) (rn * 50);
     }
-    
+
     @Override
     public void keyTyped(KeyEvent e) {
     }
@@ -44,7 +47,7 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if (key == SPACE) {
+        if (key == SPACE || key == UP) {
             if (!gameView.dino.isJumping()) {
                 gameView.dino.jump();
             }
@@ -57,10 +60,23 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        Object o = e.getSource();
+
         if (generateRandom() == 0) {
             gameView.getObstacles().add(new Obstacle());
         }
-        
-        gameView.repaint();
+
+        if (o == gameView.showBoundsButton) {
+            if(DinoDash.showBounds) {
+                DinoDash.showBounds = false;
+            } else {
+                DinoDash.showBounds = true;
+            }
+        }
+
+        if (o == timer) {
+            gameView.distance += 1;
+            gameView.repaint();
+        }
     }
 }

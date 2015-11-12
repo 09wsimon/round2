@@ -15,6 +15,8 @@ import javax.swing.JFrame;
  */
 public class DinoDash extends JFrame{
 
+    public static boolean showBounds;
+    
     MainMenuView mainView;
     MainMenuCntrl mainCtrl;
     GameBoardView gameView;
@@ -22,6 +24,8 @@ public class DinoDash extends JFrame{
     
     public DinoDash() {
         super("Dino Dash!");
+        
+        showBounds = true;
         
         setSize(800, 600);
         setResizable(false);
