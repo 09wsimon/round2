@@ -1,6 +1,8 @@
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -22,6 +24,8 @@ public class GameBoardView extends JPanel{
     
     public JButton showBoundsButton;
     public int distance;
+    int x = 700;
+    int y = 100;
     
     public GameBoardView() {
         obstacles = new ArrayList<>();
@@ -41,8 +45,18 @@ public class GameBoardView extends JPanel{
         g.clearRect(0, 0, getWidth(), getHeight());
         
         // Draw the map
-        g.setColor(new Color(51, 204, 255));
-        g.fillRect(0, 0, getWidth(), getHeight());
+         Image myImage = Toolkit.getDefaultToolkit().getImage("src/images/Scrollback.png");
+         
+       
+        g.drawImage(myImage, x, y, this);
+        g.drawImage(myImage, x+100, y, this);
+        g.drawImage(myImage, x+200, y, this);
+        g.drawImage(myImage, x+300, y, this);
+        g.drawImage(myImage, x+400, y, this);
+        g.drawImage(myImage, x+500, y, this);
+        g.drawImage(myImage, x+600, y, this);
+        g.drawImage(myImage, x+700, y, this);
+ 
         g.setColor(Color.GREEN);
         g.fillRect(0, 400 + dino.height, getWidth(), getHeight() - (400 + dino.height));
         
