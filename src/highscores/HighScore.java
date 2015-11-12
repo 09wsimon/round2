@@ -17,6 +17,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
+public class HighScore implements Serializable 
+{
+    private int score;
+    private String name;
+    
+    public int getScore()
+    {
+        return score;
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    
+    public HighScore(String name, int score)
+    {
+            this.score = score;
+            this.name = name;
+    }
+}
+
+/*
 public class HighScore extends JPanel implements ActionListener{
     private JLabel highScore;
     
@@ -31,4 +54,4 @@ public class HighScore extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
     }
 }
-    
+    */
