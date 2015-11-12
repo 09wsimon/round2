@@ -77,8 +77,7 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
         if (o == timer) {
             gameView.distance += 1;
             
-            gameView.x = gameView.x - 5;
-
+            gameView.x -= 5;
             if (gameView.x <= -100) {
                 gameView.x = 0;
             }

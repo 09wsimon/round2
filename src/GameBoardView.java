@@ -20,17 +20,22 @@ public class GameBoardView extends JPanel {
 
     public Dino dino;
     private ArrayList<Obstacle> obstacles;
-
+    private Image background;
+    private Image topBar;
+    
     public JButton showBoundsButton;
     public int distance;
-    int x = 0;
-    int y = 100;
+    public int x = 0;
+    public int y = 100;
 
     public GameBoardView() {
         obstacles = new ArrayList<>();
         dino = new Dino();
         distance = 0;
 
+        background = Toolkit.getDefaultToolkit().getImage("src/images/Scrollback.png");
+        topBar = Toolkit.getDefaultToolkit().getImage("src/images/topband.png");
+        
         showBoundsButton = new JButton("Show Bounds");
         showBoundsButton.setFocusable(false);
         add(showBoundsButton);
@@ -44,32 +49,16 @@ public class GameBoardView extends JPanel {
         g.clearRect(0, 0, getWidth(), getHeight());
 
         // Draw the map
-        Image myImage = Toolkit.getDefaultToolkit().getImage("src/images/Scrollback.png");
-        Image myImage1 = Toolkit.getDefaultToolkit().getImage("src/images/topband.png");
-        g.drawImage(myImage1, 0, 0, this);
-        
-
+        g.drawImage(topBar, 0, 0, null);
         for (int i = 0; i < 10; i++) {
-            g.drawImage(myImage, x + (i * 100), y, null);
+            g.drawImage(background, x + (i * 100), y, null);
         }
-        
-        /*
-        g.drawImage(myImage, x, y, this);
-        g.drawImage(myImage, x + 100, y, this);
-        g.drawImage(myImage, x + 200, y, this);
-        g.drawImage(myImage, x + 300, y, this);
-        g.drawImage(myImage, x + 400, y, this);
-        g.drawImage(myImage, x + 500, y, this);
-        g.drawImage(myImage, x + 600, y, this);
-        g.drawImage(myImage, x + 700, y, this);
-        */
-
         g.setColor(Color.GREEN);
         g.fillRect(0, 400 + dino.height, getWidth(), getHeight() - (400 + dino.height));
 
         // Draw the distance
         g.setColor(Color.RED);
-        g.drawString(Integer.toString(distance), getWidth() - 30, 20);
+        g.drawString(Integer.toString(distance), getWidth() - 50, 20);
 
         // Draw the obstacles
         for (Obstacle obstacle : obstacles) {
@@ -97,7 +86,7 @@ public class GameBoardView extends JPanel {
     }
 
     // Getters and setters
-
+    
     public ArrayList getObstacles() {
         return obstacles;
     }
