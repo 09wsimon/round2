@@ -22,8 +22,12 @@ public class DinoDash extends JFrame{
     GameBoardView gameView;
     GameBoardCntrl gameCtrl;
     
+    String difficulty;
+    
     public DinoDash() {
         super("Dino Dash!");
+        
+        showBounds = false;
         
         showBounds = false;
         
@@ -34,11 +38,22 @@ public class DinoDash extends JFrame{
         
         mainView = new MainMenuView();
         mainCtrl = new MainMenuCntrl(mainView);
-        gameView = new GameBoardView();
-        gameCtrl = new GameBoardCntrl(gameView);
+        //gameView = new GameBoardView();
+        //gameCtrl = new GameBoardCntrl(gameView);
         
         mainView.b4.addActionListener((ActionEvent e) -> {
             remove(mainView);
+            if(mainView.easyButton.isSelected()) {
+                difficulty = mainView.easyButton.getText();
+            }
+            if(mainView.mediumButton.isSelected()) {
+                difficulty = mainView.mediumButton.getText();
+            }
+            if(mainView.hardButton.isSelected()) {
+                difficulty = mainView.hardButton.getText();
+            }
+            gameView = new GameBoardView(new User(mainView.nameField.getText(), difficulty));
+            gameCtrl = new GameBoardCntrl(gameView);
             add(gameView);
             revalidate();
             repaint();
