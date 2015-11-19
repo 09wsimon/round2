@@ -29,8 +29,6 @@ public class DinoDash extends JFrame{
         
         showBounds = false;
         
-        showBounds = false;
-        
         setSize(800, 600);
         setResizable(false);
         setLocationRelativeTo(null);

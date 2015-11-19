@@ -41,8 +41,6 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
         
         gameView.showBoundsButton.addActionListener(this);
 
-        gameView.showBoundsButton.addActionListener(this);
-
         timer.start();
         gameView.addKeyListener(this);
         gameView.requestFocus();
