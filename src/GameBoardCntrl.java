@@ -3,6 +3,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
 /*
@@ -24,21 +27,21 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
 
     private final int amountOfObstacles;
     private int speed;
-    
+
     public GameBoardCntrl(GameBoardView gameView) {
         this.gameView = gameView;
         timer = new Timer(50, this);
 
-        if(gameView.user.getDifficulty().equalsIgnoreCase("easy")) {
+        if (gameView.user.getDifficulty().equalsIgnoreCase("easy")) {
             amountOfObstacles = 100;
-        } else if(gameView.user.getDifficulty().equalsIgnoreCase("medium")) {
+        } else if (gameView.user.getDifficulty().equalsIgnoreCase("medium")) {
             amountOfObstacles = 50;
-        } else if(gameView.user.getDifficulty().equalsIgnoreCase("hard")) {
+        } else if (gameView.user.getDifficulty().equalsIgnoreCase("hard")) {
             amountOfObstacles = 35;
         } else {
             amountOfObstacles = 0;
         }
-        
+
         speed = 5;
         gameView.showBoundsButton.addActionListener(this);
 
@@ -89,26 +92,37 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
 
         if (o == timer) {
             // Check endgame
-            if(gameView.endGame) {
-                gameView.endGameButton.setText("Game Over: " + gameView.distance);
+            if (gameView.endGame) {
+                gameView.endGameButton.setText("Score: " + gameView.distance + " | Play Again?");
                 gameView.add(gameView.endGameButton);
+                gameView.endGameButton.setBounds((gameView.getWidth() / 2) - 100, (gameView.getHeight() / 2) - 50, 200, 50);
+                gameView.endGameButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        
+                        DinoDash frame = (DinoDash) SwingUtilities.getWindowAncestor(gameView);
+                        frame.restart();
+                        //frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                        
+                    }
+                });
                 gameView.revalidate();
                 gameView.repaint();
                 timer.stop();
             }
-            
+
             // Distance updating
             gameView.distance += 1;
-            if(gameView.distance % 100 == 0) {
+            if (gameView.distance % 100 == 0) {
                 speed++;
             }
-            
+
             // Making the background scrollable
             gameView.x -= 5;
             if (gameView.x <= -gameView.backgroundSize) {
                 gameView.x = 0;
             }
-            
+
             // Repainting
             gameView.repaint();
         }
