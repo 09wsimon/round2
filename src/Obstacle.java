@@ -19,11 +19,13 @@ import javax.swing.ImageIcon;
 public class Obstacle extends Rectangle{
     
     private final int obstacleSize = 30;
-    private final int speed = 5;
+    private int speed;
     
     private final ImageIcon image;
     
-    public Obstacle() {
+    public Obstacle(int speed) {
+        this.speed = speed;
+        
         setBounds(800, 480 - obstacleSize, obstacleSize, obstacleSize);
         
         image = new ImageIcon("src/images/rock_sm.png");

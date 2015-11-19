@@ -3,7 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javafx.scene.input.KeyCode;
 import javax.swing.Timer;
 
 /*
@@ -20,10 +19,11 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
     private final int SPACE = 32;
     private final int UP = 38;
 
-    private GameBoardView gameView;
-    private Timer timer;
+    private final GameBoardView gameView;
+    private final Timer timer;
 
-    private int amountOfObstacles;
+    private final int amountOfObstacles;
+    private int speed;
     
     public GameBoardCntrl(GameBoardView gameView) {
         this.gameView = gameView;
@@ -39,6 +39,7 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
             amountOfObstacles = 0;
         }
         
+        speed = 5;
         gameView.showBoundsButton.addActionListener(this);
 
         timer.start();
@@ -75,7 +76,7 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
         Object o = e.getSource();
 
         if (generateRandom() == 0) {
-            gameView.getObstacles().add(new Obstacle());
+            gameView.getObstacles().add(new Obstacle(speed));
         }
 
         if (o == gameView.showBoundsButton) {
@@ -87,13 +88,20 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
         }
 
         if (o == timer) {
+            // Distance updating
             gameView.distance += 1;
+            if(gameView.distance % 100 == 0) {
+                System.out.println(speed);
+                speed++;
+            }
             
+            // Making the background scrollable
             gameView.x -= 5;
             if (gameView.x <= -gameView.backgroundSize) {
                 gameView.x = 0;
             }
             
+            // Repainting
             gameView.repaint();
         }
     }
