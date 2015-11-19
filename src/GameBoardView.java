@@ -24,7 +24,10 @@ public class GameBoardView extends JPanel {
     private Image background;
     private Image topBar;
     
+    public boolean endGame;
+    
     public JButton showBoundsButton;
+    public JButton endGameButton;
     public int distance;
     public int x = 0;
     public int y = 100;
@@ -32,16 +35,22 @@ public class GameBoardView extends JPanel {
 
     public GameBoardView(User user) {
         this.user = user;
+        
+        setLayout(null);
+        
         obstacles = new ArrayList<>();
         dino = new Dino();
         distance = 0;
-
+        endGame = false;
+        
         background = Toolkit.getDefaultToolkit().getImage("src/images/Scrollback.png");
         topBar = Toolkit.getDefaultToolkit().getImage("src/images/topband.png");
         
         showBoundsButton = new JButton("Show Bounds");
         showBoundsButton.setFocusable(false);
-        add(showBoundsButton);
+        endGameButton = new JButton();
+        endGameButton.setBounds(getWidth() - 200, getHeight() - 200, 200, 200);
+        //add(showBoundsButton);
     }
 
     @Override
@@ -78,9 +87,10 @@ public class GameBoardView extends JPanel {
         // Check collisions
         for (Obstacle obstacle : obstacles) {
             if (dino.checkHit(obstacle)) {
-                g.setColor(Color.RED);
-                g.drawString("HIT!", 20, 20);
-                distance = 0;
+                //g.setColor(Color.RED);
+                //g.drawString("HIT!", 20, 20);
+                //distance = 0;
+                endGame = true;
             }
         }
     }

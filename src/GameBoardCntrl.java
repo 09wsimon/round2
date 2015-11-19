@@ -88,10 +88,18 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
         }
 
         if (o == timer) {
+            // Check endgame
+            if(gameView.endGame) {
+                gameView.endGameButton.setText("Game Over: " + gameView.distance);
+                gameView.add(gameView.endGameButton);
+                gameView.revalidate();
+                gameView.repaint();
+                timer.stop();
+            }
+            
             // Distance updating
             gameView.distance += 1;
             if(gameView.distance % 100 == 0) {
-                System.out.println(speed);
                 speed++;
             }
             
