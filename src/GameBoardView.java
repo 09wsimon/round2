@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 public class GameBoardView extends JPanel {
 
     public Dino dino;
+    public User user;
     private ArrayList<Obstacle> obstacles;
     private Image background;
     private Image topBar;
@@ -27,8 +28,10 @@ public class GameBoardView extends JPanel {
     public int distance;
     public int x = 0;
     public int y = 100;
+    public final int backgroundSize = 139;
 
-    public GameBoardView() {
+    public GameBoardView(User user) {
+        this.user = user;
         obstacles = new ArrayList<>();
         dino = new Dino();
         distance = 0;
@@ -51,14 +54,18 @@ public class GameBoardView extends JPanel {
         // Draw the map
         g.drawImage(topBar, 0, 0, null);
         for (int i = 0; i < 10; i++) {
-            g.drawImage(background, x + (i * 100), y, null);
+            g.drawImage(background, x + (i * backgroundSize), y, null);
         }
         g.setColor(Color.GREEN);
         g.fillRect(0, 400 + dino.height, getWidth(), getHeight() - (400 + dino.height));
 
+        // Draw the username
+        g.setColor(Color.RED);
+        g.drawString(user.getUsername(), getWidth() - 50, 20);
+        
         // Draw the distance
         g.setColor(Color.RED);
-        g.drawString(Integer.toString(distance), getWidth() - 50, 20);
+        g.drawString(Integer.toString(distance), getWidth() - 50, 40);
 
         // Draw the obstacles
         for (Obstacle obstacle : obstacles) {

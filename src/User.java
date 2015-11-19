@@ -10,4 +10,19 @@
  */
 public class User {
     
+    private String username;
+    private String difficulty;
+    
+    public User(String username, String difficulty) {
+        this.username = username;
+        this.difficulty = difficulty;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+    
+    public String getDifficulty() {
+        return difficulty;
+    }
 }

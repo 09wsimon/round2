@@ -23,10 +23,22 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
     private GameBoardView gameView;
     private Timer timer;
 
+    private int amountOfObstacles;
+    
     public GameBoardCntrl(GameBoardView gameView) {
         this.gameView = gameView;
         timer = new Timer(50, this);
 
+        if(gameView.user.getDifficulty().equalsIgnoreCase("easy")) {
+            amountOfObstacles = 100;
+        } else if(gameView.user.getDifficulty().equalsIgnoreCase("medium")) {
+            amountOfObstacles = 50;
+        } else if(gameView.user.getDifficulty().equalsIgnoreCase("hard")) {
+            amountOfObstacles = 35;
+        } else {
+            amountOfObstacles = 0;
+        }
+        
         gameView.showBoundsButton.addActionListener(this);
 
         timer.start();
@@ -36,7 +48,7 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
 
     public int generateRandom() {
         double rn = Math.random();
-        return (int) (rn * 50);
+        return (int) (rn * amountOfObstacles);
     }
 
     @Override
@@ -78,7 +90,7 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
             gameView.distance += 1;
             
             gameView.x -= 5;
-            if (gameView.x <= -100) {
+            if (gameView.x <= -gameView.backgroundSize) {
                 gameView.x = 0;
             }
             
