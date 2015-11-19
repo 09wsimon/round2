@@ -3,8 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
@@ -21,6 +19,8 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
 
     private final int SPACE = 32;
     private final int UP = 38;
+    private final int RIGHT = 39;
+    private final int LEFT = 37;
 
     private final GameBoardView gameView;
     private final Timer timer;
@@ -67,6 +67,12 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
             if (!gameView.dino.isJumping()) {
                 gameView.dino.jump();
             }
+        }
+        if(key == RIGHT) {
+            gameView.dino.x += 10;
+        }
+        if(key == LEFT) {
+            gameView.dino.x -= 10;
         }
     }
 
