@@ -71,7 +71,7 @@ public class MainMenuView extends JPanel {
         nameField = new TextField(15);
         name = new Label("Enter Name");
         HS = new Label("         High Scores");
-        UN = new Label("   User Name");
+        UN = new Label("     User Name");
         SC = new Label("Score");
         HighscoreManager hm = new HighscoreManager();
         usernameList = new JTextArea(hm.getUsernameString());
@@ -101,11 +101,11 @@ public class MainMenuView extends JPanel {
         b4.setBounds(250, 290, 90, 20);
         nameField.setBounds(150, 150, 90, 20);
         name.setBounds(150, 130, 90, 20);
-        HS.setBounds(500, 130, 150, 20);
-        UN.setBounds(500, 150, 150, 20);
-        SC.setBounds(600, 150, 50, 20);
-        usernameList.setBounds(500,170,150,220);
-        scoreList.setBounds(600,170,50,220);
+        HS.setBounds(500, 130, 140, 20);
+        UN.setBounds(500, 150, 140, 20);
+        SC.setBounds(600, 150, 40, 20);
+        usernameList.setBounds(500,170,120,165);
+        scoreList.setBounds(600,170,40,165);
 
     }
 

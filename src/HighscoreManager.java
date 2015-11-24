@@ -94,7 +94,7 @@ public class HighscoreManager{
             x = max;
         }
         while (i < x) {
-            usernameString += (i + 1) + ". " + scores.get(i).getNaam() + "\n";
+            usernameString += " " + (i + 1) + ". " + scores.get(i).getNaam() + "\n";
             i++;
         }
         return usernameString;
