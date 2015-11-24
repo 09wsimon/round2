@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.awt.Label;
 import java.awt.TextField;
 import java.awt.Toolkit;
+import java.awt.Font;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -34,6 +35,7 @@ public class MainMenuView extends JPanel {
     Label SC;
     JTextArea usernameList;
     JTextArea scoreList;
+    Label hsBorder;
 
     // Radio buttons
     ButtonGroup difficultyButtons;
@@ -70,12 +72,25 @@ public class MainMenuView extends JPanel {
         b4 = new JButton("Start Game");
         nameField = new TextField(15);
         name = new Label("Enter Name");
-        HS = new Label("         High Scores");
+        HS = new Label(" High Scores");
         UN = new Label("     User Name");
         SC = new Label("Score");
+        hsBorder = new Label();
         HighscoreManager hm = new HighscoreManager();
         usernameList = new JTextArea(hm.getUsernameString());
         scoreList = new JTextArea(hm.getHighscoreString());
+        scoreList.setBackground(Color.GREEN);
+        scoreList.setForeground(Color.BLACK);
+        usernameList.setBackground(Color.GREEN);
+        usernameList.setForeground(Color.BLACK);
+        HS.setBackground(new Color(0,80,0));
+        HS.setForeground(Color.WHITE);
+        HS.setFont(new Font("Serif", Font.PLAIN, 33));
+        UN.setBackground(Color.GREEN);
+        UN.setForeground(Color.BLACK);
+        SC.setBackground(Color.GREEN);
+        SC.setForeground(Color.BLACK);
+        hsBorder.setBackground(new Color(0,80,0));
         setLayout(null);
 
         add(b4);
@@ -86,6 +101,7 @@ public class MainMenuView extends JPanel {
         add(UN);
         add(scoreList);
         add(usernameList);
+        add(hsBorder);
 
         add(easyButton);
         add(mediumButton);
@@ -101,11 +117,12 @@ public class MainMenuView extends JPanel {
         b4.setBounds(250, 290, 90, 20);
         nameField.setBounds(150, 150, 90, 20);
         name.setBounds(150, 130, 90, 20);
-        HS.setBounds(500, 130, 140, 20);
-        UN.setBounds(500, 150, 140, 20);
-        SC.setBounds(600, 150, 40, 20);
-        usernameList.setBounds(500,170,120,165);
-        scoreList.setBounds(600,170,40,165);
+        HS.setBounds(582, 115, 175, 35);
+        UN.setBounds(600, 150, 140, 20);
+        SC.setBounds(700, 150, 40, 20);
+        usernameList.setBounds(600,170,120,165);
+        scoreList.setBounds(700,170,40,165);
+        hsBorder.setBounds(582, 115, 175, 235);
 
     }
 
