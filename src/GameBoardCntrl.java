@@ -16,7 +16,6 @@ import javax.swing.Timer;
  * @author brianwest
  */
 public class GameBoardCntrl implements ActionListener, KeyListener {
-
     private final int SPACE = 32;
     private final int UP = 38;
     private final int RIGHT = 39;
@@ -107,7 +106,7 @@ public class GameBoardCntrl implements ActionListener, KeyListener {
                     public void actionPerformed(ActionEvent e) {
                         
                         DinoDash frame = (DinoDash) SwingUtilities.getWindowAncestor(gameView);
-                        frame.restart();
+                        frame.restart(gameView.user.getUsername(), gameView.distance);
                         //frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                         
                     }

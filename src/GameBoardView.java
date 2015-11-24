@@ -83,6 +83,7 @@ public class GameBoardView extends JPanel {
         if (!endGame) {
             g.setColor(Color.RED);
             g.drawString(Integer.toString(distance), getWidth() - 50, 40);
+            
         }
 
         // Draw the obstacles

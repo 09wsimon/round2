@@ -19,6 +19,7 @@ public class MainMenuCntrl implements ActionListener {
         this.mainView = mainView;
         
         mainView.b4.addActionListener(this);
+        
     }
 
     @Override

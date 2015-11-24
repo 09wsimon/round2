@@ -30,7 +30,10 @@ public class MainMenuView extends JPanel {
     TextField nameField;
     Label name;
     Label HS;
-    JTextArea textArea;
+    Label UN;
+    Label SC;
+    JTextArea usernameList;
+    JTextArea scoreList;
 
     // Radio buttons
     ButtonGroup difficultyButtons;
@@ -66,17 +69,23 @@ public class MainMenuView extends JPanel {
         
         b4 = new JButton("Start Game");
         nameField = new TextField(15);
-        Label name = new Label("Enter Name");
-        Label HS = new Label("High Scores");
-        //textArea = new JTextArea(5, 20);
-
+        name = new Label("Enter Name");
+        HS = new Label("         High Scores");
+        UN = new Label("   User Name");
+        SC = new Label("Score");
+        HighscoreManager hm = new HighscoreManager();
+        usernameList = new JTextArea(hm.getUsernameString());
+        scoreList = new JTextArea(hm.getHighscoreString());
         setLayout(null);
 
         add(b4);
         add(nameField);
         add(name);
         add(HS);
-       // add(textArea);
+        add(SC);
+        add(UN);
+        add(scoreList);
+        add(usernameList);
 
         add(easyButton);
         add(mediumButton);
@@ -92,8 +101,11 @@ public class MainMenuView extends JPanel {
         b4.setBounds(250, 290, 90, 20);
         nameField.setBounds(150, 150, 90, 20);
         name.setBounds(150, 130, 90, 20);
-        HS.setBounds(500, 130, 90, 20);
-        //textArea.setBounds(600,140,900,220);
+        HS.setBounds(500, 130, 150, 20);
+        UN.setBounds(500, 150, 150, 20);
+        SC.setBounds(600, 150, 50, 20);
+        usernameList.setBounds(500,170,150,220);
+        scoreList.setBounds(600,170,50,220);
 
     }
 
